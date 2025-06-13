@@ -32,3 +32,4 @@ gmail-alert-tray/
 ├── assets/
 │   ├── ding.mp3            # Sound played for new email alerts
 │   └── tray_icon.png       # Icon for the system tray
+
