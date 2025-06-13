@@ -1,1 +1,18 @@
-
+[
+  {
+    "email": "youraccount1@gmail.com",
+    "app_password": "abcd efgh ijkl mnop"
+  },
+  {
+    "email": "youraccount2@gmail.com",
+    "app_password": "qrst uvwx yzab cdef"
+  },
+  {
+    "email": "youraccount2@gmail.com",
+    "app_password": "qrst uvwx yzab cdef"
+  },
+  {
+    "email": "youraccount2@gmail.com",
+    "app_password": "qrst uvwx yzab cdef"
+  }
+]
