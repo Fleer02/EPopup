@@ -1,0 +1,22 @@
+{
+  "tr": {
+    "app_running": "Uygulama çalışıyor...",
+    "notification_title": "Yeni Önemli E-posta",
+    "from": "Gönderen",
+    "subject": "Konu",
+    "log_saved": "Log dosyasına kaydedildi",
+    "settings_title": "Ayarlar",
+    "language_label": "Dil Seçimi",
+    "exit": "Çıkış"
+  },
+  "en": {
+    "app_running": "Application is running...",
+    "notification_title": "New Important Email",
+    "from": "From",
+    "subject": "Subject",
+    "log_saved": "Saved to log file",
+    "settings_title": "Settings",
+    "language_label": "Language Selection",
+    "exit": "Exit"
+  }
+}
