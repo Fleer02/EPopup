@@ -1,0 +1,9 @@
+{
+  "language": "tr",
+  "check_interval_seconds": 60,
+  "play_sound": true,
+  "show_popup": true,
+  "log_emails": true,
+  "gmail_imap_server": "imap.gmail.com",
+  "imap_port": 993
+}
