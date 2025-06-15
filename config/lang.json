@@ -7,7 +7,14 @@
     "log_saved": "Log dosyasına kaydedildi",
     "settings_title": "Ayarlar",
     "language_label": "Dil Seçimi",
-    "exit": "Çıkış"
+    "exit": "Çıkış",
+    "keywords": "Anahtar Kelimeler",
+    "blocked": "Engellenen Kelimeler",
+    "logs": "Log Kayıtları",
+    "info": "Bilgi",
+    "status": "Uygulama çalışıyor.",
+    "language": "Dil",
+    "error_reading": "Dosya okunamadı."
   },
   "en": {
     "app_running": "Application is running...",
@@ -17,6 +24,13 @@
     "log_saved": "Saved to log file",
     "settings_title": "Settings",
     "language_label": "Language Selection",
-    "exit": "Exit"
+    "exit": "Exit",
+    "keywords": "Keywords",
+    "blocked": "Blocked Words",
+    "logs": "Log Records",
+    "info": "Info",
+    "status": "Application is running.",
+    "language": "Language",
+    "error_reading": "Could not read file."
   }
 }
