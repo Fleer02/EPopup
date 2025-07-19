@@ -13,8 +13,8 @@ with open("config/settings.json", "r", encoding="utf-8") as f:
 with open("config/accounts.json", "r", encoding="utf-8") as f:
     accounts = json.load(f)
 
-EMAIL = accounts["email"]
-PASSWORD = accounts["password"]
+EMAIL = accounts.get("email")
+PASSWORD = accounts.get("app_password")
 IMAP_SERVER = settings.get("gmail_imap_server", "imap.gmail.com")
 IMAP_PORT = settings.get("imap_port", 993)
 CHECK_INTERVAL = settings.get("check_interval_seconds", 60)
@@ -41,12 +41,35 @@ def check_email():
                     from_ = msg.get("From")
                     date_ = msg.get("Date")
 
+                    # Gövdeyi çıkar
+                    body = ""
+                    if msg.is_multipart():
+                        for part in msg.walk():
+                            ctype = part.get_content_type()
+                            disp = str(part.get("Content-Disposition"))
+                            if ctype == "text/plain" and "attachment" not in disp:
+                                try:
+                                    body = part.get_payload(decode=True).decode(
+                                        part.get_content_charset() or "utf-8",
+                                        errors="ignore",
+                                    )
+                                except Exception:
+                                    body = ""
+                                break
+                    else:
+                        try:
+                            body = msg.get_payload(decode=True).decode(
+                                msg.get_content_charset() or "utf-8", errors="ignore"
+                            )
+                        except Exception:
+                            body = ""
+
                     # Önemli e-posta tespiti
-                    if is_important_email(subject):
+                    if is_important_email(subject, body):
                         if settings.get("show_popup", True):
-                            show_notification(from_, subject)
+                            show_notification(from_, subject, body)
                         if settings.get("log_emails", True):
-                            log_email(from_, subject, date_)
+                            log_email(from_, subject, body, date_)
         mail.logout()
     except Exception as e:
         print(f"[ERROR] E-posta kontrolünde hata: {e}")
