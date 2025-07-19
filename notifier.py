@@ -16,21 +16,25 @@ with open("config/lang.json", "r", encoding="utf-8") as f:
 L = lang.get(language, lang["tr"])
 
 # Bildirim işlevi
-def show_notification(sender: str, subject: str):
+def show_notification(sender: str, subject: str, body: str = ""):
     app = QApplication([])
 
     tray = QSystemTrayIcon()
-    tray.setIcon(QIcon("assets/icon.png"))
+    tray.setIcon(QIcon("assets/tray_icon.png"))
     tray.setVisible(True)
 
     title = L["notification_title"]
-    message = f"{L['from']}: {sender}\n{L['subject']}: {subject}"
+    snippet = body.replace('\n', ' ')[:100]
+    if snippet:
+        message = f"{L['from']}: {sender}\n{L['subject']}: {subject}\n{snippet}"
+    else:
+        message = f"{L['from']}: {sender}\n{L['subject']}: {subject}"
 
     tray.showMessage(title, message, QSystemTrayIcon.Information, 10000)  # 10 saniye
 
     # Ses efekti çal
     if settings.get("play_sound", True):
-        sound_path = os.path.abspath("assets/ding.wav")
+        sound_path = os.path.abspath("assets/ding.mp3")
         if os.path.exists(sound_path):
             QSound.play(sound_path)
 

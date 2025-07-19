@@ -1,18 +1,4 @@
-[
-  {
-    "email": "youraccount1@gmail.com",
-    "app_password": "password1"
-  },
-  {
-    "email": "youraccount2@gmail.com",
-    "app_password": "password2"
-  },
-  {
-    "email": "youraccount3@gmail.com",
-    "app_password": "password3"
-  },
-  {
-    "email": "youraccount4@gmail.com",
-    "app_password": "password4"
-  }
-]
+{
+  "email": "youraccount@gmail.com",
+  "app_password": "yourapppassword"
+}
