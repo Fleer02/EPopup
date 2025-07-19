@@ -20,7 +20,8 @@ def show_notification(sender: str, subject: str):
     app = QApplication([])
 
     tray = QSystemTrayIcon()
-    tray.setIcon(QIcon("assets/icon.png"))
+    # use the provided tray icon from the assets folder
+    tray.setIcon(QIcon("assets/tray_icon.png"))
     tray.setVisible(True)
 
     title = L["notification_title"]
@@ -30,7 +31,8 @@ def show_notification(sender: str, subject: str):
 
     # Ses efekti çal
     if settings.get("play_sound", True):
-        sound_path = os.path.abspath("assets/ding.wav")
+        # the repository ships a mp3 sound file for alerts
+        sound_path = os.path.abspath("assets/ding.mp3")
         if os.path.exists(sound_path):
             QSound.play(sound_path)
 

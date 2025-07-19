@@ -13,8 +13,10 @@ with open("config/settings.json", "r", encoding="utf-8") as f:
 with open("config/accounts.json", "r", encoding="utf-8") as f:
     accounts = json.load(f)
 
-EMAIL = accounts["email"]
-PASSWORD = accounts["password"]
+# use the first configured account for authentication
+first_account = accounts[0]
+EMAIL = first_account.get("email")
+PASSWORD = first_account.get("app_password") or first_account.get("password")
 IMAP_SERVER = settings.get("gmail_imap_server", "imap.gmail.com")
 IMAP_PORT = settings.get("imap_port", 993)
 CHECK_INTERVAL = settings.get("check_interval_seconds", 60)
