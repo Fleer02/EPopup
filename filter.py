@@ -5,7 +5,8 @@ import os
 def load_keywords():
     with open("config/keywords.json", "r", encoding="utf-8") as f:
         keywords = [k.lower() for k in json.load(f)]
-    with open("config/blocked_words.json", "r", encoding="utf-8") as f:
+    # "blocked.json" contains words that should prevent a notification
+    with open("config/blocked.json", "r", encoding="utf-8") as f:
         blocked_words = [b.lower() for b in json.load(f)]
     return keywords, blocked_words
 
